@@ -1,0 +1,36 @@
+.leaflet-map{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.map{
+    height: 100%;
+}
+
+.popup{
+    /* width: 8rem; */
+    /* height: 4rem; */
+    display: flex;
+    gap: 0.2rem;
+}
+
+.popup-left img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.popup-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: 100%;
+}
+
+.popup-right a{   
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+

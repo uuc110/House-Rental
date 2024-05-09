@@ -1,0 +1,111 @@
+    .home {
+        height: 91vh;
+        display: flex;
+        /* padding: 0 2rem; */
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .left-home,
+    .right-home {
+        height: 100%;
+    }
+
+    .left-home {
+        flex: 0 0 60%;
+    }
+
+    .left-home .left-text h1 {
+        font-size: 5rem;
+        font-weight: 400;
+        line-height: 5rem;
+        margin: 4rem 0;
+    }
+
+    .left-home .left-text p {
+        margin-right: 3rem;
+    }
+
+    .left-home .left-search {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2.5rem;
+    }
+
+    .left-home .left-search button {
+        cursor: pointer;
+    }
+
+    .left-home .left-search .buy-rent-btn {
+        display: flex;
+    }
+
+    .left-home .left-search .buy-rent-btn button {
+        height: 3rem;
+        width: 6rem;
+        border: 1px solid rgba(0, 0, 0, 0.267);
+        background-color: white;
+    }
+
+    .left-home .left-search .buy-rent-btn .buy-btn {
+        border-top-left-radius: 5px;
+        border-bottom: none;
+        border-right: none;
+    }
+
+    .left-home .left-search .buy-rent-btn .rent-btn {
+        border-top-right-radius: 5px;
+        border-bottom: none;
+    }
+
+    .left-home .left-search form {
+        display: flex;
+        border: 0.5px solid rgba(0, 0, 0, 0.296);
+        margin-right: 4rem;
+    }
+
+    .left-home .left-search form input {
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    #home-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 4rem;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        background-color: #fece51;
+    }
+
+    .left-home .left-features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 2rem;
+    }
+
+    .left-home .left-features .bold {
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
+    .left-home .left-features span {
+        font-size: 1.1rem;
+        font-weight: 100;
+    }
+
+    .right-home {
+        flex: 0 0 40%;
+        background-color: #fcf5f3;
+    }
+
+    .right-home img {
+        width: 100%;
+        height: 95%;
+        object-fit: cover;
+    }

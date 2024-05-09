@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+  }
+
+  .left{
+    flex: 0 0 60%;
+  }
+  
+  .right{
+    flex: 0 0 40%;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    background-color: #fcf5f3;
+
+  }
+  
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .right a {
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+  
+  .logo-seen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+  
+  .logo-seen img {
+    height: 1.5rem;
+    padding-right: 0.3rem;
+  }
+  
