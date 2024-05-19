@@ -1,54 +1,40 @@
-import React from 'react'
-import './app.css'
-import './output.css'
-import './responsive.css'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './components/homepage/Home'
-import Nav from './components/navbar/Nav'
-import Login from './components/auth/Login'
-import Register from './components/auth/Register'
-import Profile from './components/profile/Profile'
+import React, { useContext } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './app.css';
+import './output.css';
+import './responsive.css';
+import Home from './components/homepage/Home';
+import Nav from './components/navbar/Nav';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Profile from './components/profile/Profile';
 import PropertySearch from './components/properties/PropertySearch';
 import SingleProperty from './components/properties/SingleProperty';
+import { AuthContext } from './context/AuthContext';
+import UpdateProfile from './components/profile/UpdateProfile';
 
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div><Home /></div>,
-    },
-    {
-      path: "/profile",
-      element: <div><Profile /></div>,
-    },
-    {
-      path: "/properties",
-      element: <div><PropertySearch /></div>,
-    },
-    {
-      path: "/properties/1",
-      element: <div><SingleProperty /></div>
-    },
-    {
-      path: "/login",
-      element: <div><Login /></div>
-    },
-    {
-      path: "/register",
-      element: <div><Register /></div>
-    }
-  ]);
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div>
       <div className="container">
+        <BrowserRouter>
         <Nav />
-        <RouterProvider router={router} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/properties" element={<PropertySearch />} />
+            <Route path="/properties/1" element={<SingleProperty />} />
+            {user ? <Route path="/profile" element={<Profile />} /> : <Route path="/profile" element={<Navigate to="/login" />} />}
+            <Route path="/profile/update" element={<UpdateProfile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

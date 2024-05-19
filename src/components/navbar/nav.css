@@ -41,3 +41,15 @@
     padding-right: 0.3rem;
   }
   
+  .login-register{
+    display: flex;
+    gap: 2rem;
+  }
+
+  .user-pfp img{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
