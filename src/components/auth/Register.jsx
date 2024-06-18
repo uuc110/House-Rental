@@ -10,7 +10,8 @@ const Register = () => {
 
     const submitForm = async function (e) {
         e.preventDefault();
-        const username = e.target[0].value;
+        const username = e.target[0].value.toLowerCase();
+        console.log(username);
         const email = e.target[1].value;
         const password = e.target[2].value;
 

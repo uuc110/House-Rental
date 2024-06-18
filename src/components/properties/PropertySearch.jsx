@@ -1,64 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './propertysearch.css'
 import PropertyList from '../profile/PropertyList'
 import Map from '../map/Map'
-import { listData } from '../../lib/dummyData'
+import axios from 'axios'
+import { useSearchParams } from 'react-router-dom'
+import AdvanceSearchBar from './AdvanceSearchBar'
 
 const PropertySearch = () => {
+    const [posts, setPosts] = useState([]);
+
+    const [searchParams] = useSearchParams();
+
+    const params = {
+        city: searchParams.get('city'),
+        min: searchParams.get('min'),
+        max: searchParams.get('max'),
+        type: searchParams.get('type'),
+        property: searchParams.get('property'),
+        bed: searchParams.get('bed')
+    }
+    // console.log(params);
+
+    async function getPosts() {
+        try {
+            const allPosts = await axios.get("http://localhost:4500/post/properties/all", { params });
+            setPosts(allPosts.data.allPosts);
+            // console.log(allPosts.data.allPosts);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getPosts();
+    }, [searchParams])
+
     return (
         <div>
             <div className="property-search">
                 <div className="search-side">
                     <div className="search-bar">
-                        <h2>Search results for <span className='city-name'>Pune</span></h2>
-                        <form>
-                            <div className="form-top">
-                                <label htmlFor="location">Location</label>
-                                <input type="search" id='location' name='location' placeholder='City Location' />
-                            </div>
-                            <div className="form-bottom">
-                                <div className="form-bottom-label-input">
-                                    <div className="label-input"><label htmlFor="type">Type</label>
-                                        <select className='form-bottom-inputs' name="type" id="property">
-                                            <option value="any">Any</option>
-                                            <option value="buy">Buy</option>
-                                            <option value="rent">Rent</option>
-                                        </select></div>
-                                    <div className="label-input">
-                                        <label htmlFor="property">Property</label>
-                                        <select className='form-bottom-inputs' name="property" id="property">
-                                            <option value="any">Any</option>
-                                            <option value="apartment">Apartment</option>
-                                            <option value="house">House</option>
-                                            <option value="villa">Villa</option>
-                                        </select>
-                                    </div>
-                                    <div className="label-input">
-                                        <label htmlFor="min">Min Price</label>
-                                        <input className='form-bottom-inputs' id='min' type="number" min="1000" max="1000000000" placeholder='Min Price.' />
-                                    </div>
-                                    <div className="label-input">
-                                        <label htmlFor="max">Max Price</label>
-                                        <input className='form-bottom-inputs' id='max' type="number" min="1000" max="1000000000" placeholder='Max Price.' />
-                                    </div>
-                                    <div className="label-input">
-                                        <label htmlFor="bed">Bedroom</label>
-                                        <input className='form-bottom-inputs' id='bed' type="number" min="1" max="6" placeholder='Room' />
-                                    </div>
-                                </div>
-                                <button><img src="./search.png" alt="" /></button>
-                            </div>
-                        </form>
+                        <h2>Search results for <span className='city-name'>{params && params.city ? params.city : 'you'}</span></h2>
+                        <AdvanceSearchBar />
                     </div>
                     <div className="property-list">
-                        {listData.map((data) => {
+                        {posts.map((data) => {
                             return <PropertyList data={data} key={data.id} />
                         })}
                     </div>
                 </div>
                 <div className="map-side">
                     <div className="map">
-                        <Map listData={listData}/>
+                        <Map listData={posts} />
                     </div>
                 </div>
             </div>

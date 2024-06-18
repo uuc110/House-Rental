@@ -5,16 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
-    const {updateUser} = useContext(AuthContext);
+    const { updateUser } = useContext(AuthContext);
 
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const username = e.target[0].value;
+        const username = e.target[0].value.toLowerCase();
         const password = e.target[1].value;
-
         await axios.post('http://localhost:4500/auth/login', {
             username,
             password
@@ -39,7 +38,7 @@ const Login = () => {
                             <input type="password" placeholder="Password" />
                             <button>Login</button>
                         </form>
-                        <div>{message!==null && message}</div>
+                        <div>{message !== null && message}</div>
                         <a href="/register">Not registered yet?</a>
                     </div>
                 </div>

@@ -126,6 +126,17 @@
     .property-search .search-side{
       flex: 0 0 100%;
     }
+
+    .upload-property{
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1rem;
+    }
+
+    .left-fill{
+      border-top: 1px solid #fecd51;
+      padding-top: 2rem;
+    }
   }
   
   /* Media query for max-width: 700px */

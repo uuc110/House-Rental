@@ -3,6 +3,7 @@ import '../properties/propertysearch.css'
 import './imageslider.css'
 
 const ImageSlider = ({ images }) => {
+    // console.log(images);
 
     const [imgIndex, setImgIndex] = useState(null);
 
@@ -10,17 +11,17 @@ const ImageSlider = ({ images }) => {
         if (dir === 'prev') {
             if (imgIndex === 0) {
                 setImgIndex(images.length - 1);
-                console.log(imgIndex);
+                // console.log(imgIndex);
             } else {
                 setImgIndex(imgIndex - 1);
-                console.log(imgIndex);
+                // console.log(imgIndex);
             }
         } else {
             if (imgIndex === images.length - 1) {
                 setImgIndex(0);
             } else {
                 setImgIndex(imgIndex + 1);
-                console.log(imgIndex);
+                // console.log(imgIndex);
             }
         }
     }
@@ -31,6 +32,10 @@ const ImageSlider = ({ images }) => {
                 setImgIndex(null);
             }
         })
+    }
+
+    if(!images || images.length === 0){
+        return <div></div>
     }
 
     return (
@@ -59,8 +64,8 @@ const ImageSlider = ({ images }) => {
                 <img src={images[0]} alt="" onClick={() => { setImgIndex(0); console.log(imgIndex); }} />
             </div>
             <div className="small-imgs">
-                {images.slice(1).map((img, index) => {
-                    return <img
+                {images.slice(1, images.length-1).map((img, index) => {
+                    return <img className='small-imgs-img'
                         src={img}
                         alt=""
                         key={index}

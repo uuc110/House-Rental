@@ -21,7 +21,7 @@ const UpdateProfile = () => {
     const handleChange = async (e) => {
         e.preventDefault();
 
-        console.log(username, email, password, avatar);
+        // console.log(username, email, password, avatar);
 
         try {
             const res = await axios.put(

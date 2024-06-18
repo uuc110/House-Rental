@@ -48,17 +48,17 @@
     gap: 2rem;
 }
 
-.buttons-profile{
+.buttons-profile {
     display: flex;
     gap: 1rem;
 }
 
-.buttons-profile > :first-child{
+.buttons-profile> :first-child {
     background-color: teal;
     color: white;
 }
 
-.buttons-profile > :first-child:hover{
+.buttons-profile> :first-child:hover {
     background-color: rgba(0, 128, 128, 0.797);
 }
 
@@ -153,7 +153,7 @@
 
 .features {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .bedroom,
@@ -164,19 +164,19 @@
     border-radius: 5px;
 }
 
-.etc {
-    width: 40%;
-    padding-right: 2rem;
-    gap: 1rem;
-    justify-content: flex-end;
+.etc-features{
+    margin-left: 2rem;
 }
 
-.etc img {
+.etc {
+    width: 50%;
+    padding-right: 0.5rem;
+    justify-content: flex-end;
     cursor: pointer;
 }
 
 /* Chat section */
-.chat-side{
+.chat-side {
     flex: 0 0 40%;
     max-height: 91vh;
 }
@@ -224,7 +224,7 @@
     object-fit: cover;
 }
 
-.right-update{
+.right-update {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,6 +239,3 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
-
-
