@@ -5,7 +5,7 @@ const Searchbar = () => {
 
     const navigate = useNavigate(); 
 
-    let [searchParams, setSearchParams] = useSearchParams();
+    let [setSearchParams] = useSearchParams();
     const [btn, setBtn] = useState('Buy')
 
     function handleSubmit(event) {

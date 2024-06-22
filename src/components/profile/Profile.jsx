@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './profile.css'
 import PropertyList from './PropertyList'
-import Chat from '../chat/Chat'
+// import Chat from '../chat/Chat'
 // import { listData } from '../../lib/dummyData'
 import axios from 'axios'
 import { AuthContext } from '../../context/AuthContext'
@@ -49,7 +49,7 @@ const Profile = () => {
     useEffect(() => {
         projectListFetch();
         savedProjects();
-    }, []);
+    }, [savedProjects]);
 
     // console.log(savedPosts);
     // console.log(projectList);
