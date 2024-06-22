@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './profile.css'
 import { useNavigate } from 'react-router-dom'
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
+// import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { CgGym } from "react-icons/cg";
+import { FaSwimmer } from "react-icons/fa";
+import { GiCctvCamera } from "react-icons/gi";
 
 const PropertyList = ({ data }) => {
     const navigate = useNavigate();
@@ -32,7 +35,9 @@ const PropertyList = ({ data }) => {
                         </div>
                         <div className="flex-details etc-features">
                             {/* <div className="etc" onClick={handleSaving}>{save ? <GoBookmarkFill className='h-6 w-6'/> : <GoBookmark className='h-6 w-6'/>}</div> */}
-                            <div className='etc-chat etc'><IoChatboxEllipsesOutline className='h-6 w-6'/></div>
+                            {/* <div className='etc-chat etc'><GiCctvCamera className='h-6 w-6' /></div> */}
+                            <div className='etc-chat etc'><CgGym className='h-6 w-6' /></div>
+                            <div className='etc-chat etc'><FaSwimmer className='h-6 w-6' /></div>
                         </div>
                     </div>
                 </div>

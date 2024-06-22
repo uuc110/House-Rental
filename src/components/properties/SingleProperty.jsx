@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './propertysearch.css'
 import Map from '../map/Map'
+import Chat from '../chat/Chat'
 import ImageSlider from '../imageslider/ImageSlider'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -8,12 +9,14 @@ import { AuthContext } from '../../context/AuthContext';
 import { GoBookmark } from "react-icons/go";
 import { GoBookmarkFill } from "react-icons/go";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 
 const SingleProperty = () => {
     const params = useParams();
     const [property, setProperty] = useState([]);
     const [save, setSave] = useState(false);
+    const [popMsg, setPopMsg] = useState(false);
 
     async function bookmark() {
         setSave(!save)
@@ -79,10 +82,10 @@ const SingleProperty = () => {
                     </div> */}
                     <div className="chat-save">
                         <button onClick={bookmark}>{save ? <GoBookmarkFill className='h-6 w-6' /> : <GoBookmark className='h-6 w-6' />} <span>{save ? `Unsave Property` : `Save Property`}</span></button>
-                        <button><IoChatboxEllipsesOutline className='h-6 w-6' /> Send a message</button>
+                        <button id='chat-save-msg-map' onClick={() => { setPopMsg(!popMsg) }}>{popMsg ? <FaMapMarkedAlt className='h-6 w-6'/> : <IoChatboxEllipsesOutline className='h-6 w-6' />}</button>
                     </div>
                     <div className="map">
-                        <Map listData={property} />
+                        {popMsg ? <Chat data={property}/> : <Map listData={property} />}
                     </div>
                 </div>
             </div>

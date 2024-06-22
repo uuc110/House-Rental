@@ -96,7 +96,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="chat-side">
-                    <Chat />
+                    {/* <Chat /> */}
+                    <img src="./bg.png" alt="" />
                 </div>
             </div>
         </div>

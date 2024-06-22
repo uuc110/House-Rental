@@ -19,6 +19,7 @@ const UploadProperty = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
+    console.log(...inputs, detail, images, avatar);
     await axios.post(`http://localhost:4500/post/${user.id}`, {
       ...inputs, detail, images, avatar
     }).then((res) => {

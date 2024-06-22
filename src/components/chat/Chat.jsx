@@ -1,79 +1,24 @@
 import React, { useState } from 'react'
 import './chat.css'
 
-const Chat = () => {
-
-    const [activeChat, setActiveChat] = useState(false);
+const Chat = ({ data }) => {
+    console.log(data);
+    const [activeChat, setActiveChat] = useState(true);
 
     return (
         <div className='chat'>
-            <div className={activeChat?"messages":"messages messages-full-height"}>
+            {/* <div className={activeChat ? "messages" : "messages messages-full-height"}>
                 <h1>Messages</h1>
                 <div className="message" onClick={() =>  {setActiveChat(true);} }>
                     <img src="./favicon.png" alt="" />
                     <span className='chat-user-name'>Joe</span>
                     <span>Lorem, ipsum dolor.</span>
                 </div>
-                <div className="message" onClick={() => { setActiveChat(true); }}>
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message" onClick={() => { setActiveChat(true); }}>
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message" onClick={() => { setActiveChat(true); }}>
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message" onClick={() => { setActiveChat(true); }}>
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message" onClick={() => { setActiveChat(true); }}>
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-                <div className="message">
-                    <img src="./favicon.png" alt="" />
-                    <span className='chat-user-name'>Joe</span>
-                    <span>Lorem, ipsum dolor.</span>
-                </div>
-            </div>
-            <div className={activeChat?"active-chat":"inactive-chat"}>
+            </div> */}
+            <div className={activeChat ? "active-chat" : "inactive-chat"}>
                 <div className="chat-top">
-                    <img src="./favicon.png" alt="" />
-                    <p className='chat-user-name'>Joe</p>
+                    <img src={data.avatar} alt="" />
+                    <p className='chat-user-name'>{data.postedBy}</p>
                     <span onClick={() => { setActiveChat(false) }}>X</span>
                 </div>
                 <div className="chat-centre">

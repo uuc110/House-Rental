@@ -236,6 +236,13 @@
     font-size: 0.8rem;
 }
 
+#chat-save-msg-map{
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .chat-save button:hover{
     background-color: #fecd51e0;
 }
