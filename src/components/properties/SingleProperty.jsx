@@ -21,7 +21,7 @@ const SingleProperty = () => {
     async function bookmark() {
         setSave(!save)
         try {
-            const res = await axios.post(`http://localhost:4500/user/save/${params.id}`);
+            const res = await axios.post(`https://house-rental-backend-production.up.railway.app/user/save/${params.id}`);
             // console.log(res.data.bookmark);
         } catch (error) {
             console.log(error);
@@ -30,7 +30,7 @@ const SingleProperty = () => {
 
     const postData = async function () {
         try {
-            const { data } = await axios.get(`http://localhost:4500/post/properties/${params.id}`);
+            const { data } = await axios.get(`https://house-rental-backend-production.up.railway.app/post/properties/${params.id}`);
             console.log(data);
             setProperty(data.post);
             setSave(data.isBookmark);

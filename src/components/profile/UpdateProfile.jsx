@@ -25,7 +25,7 @@ const UpdateProfile = () => {
 
         try {
             const res = await axios.put(
-                `http://localhost:4500/user/${user.id}`,
+                `https://house-rental-backend-production.up.railway.app/user/${user.id}`,
                 { username, email, password, avatar }
             );
             updateUser(res.data.user);

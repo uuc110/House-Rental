@@ -17,7 +17,7 @@ const Profile = () => {
 
     //to log out the user
     const handleLogout = async function () {
-        await axios.post("http://localhost:4500/auth/logout");
+        await axios.post("https://house-rental-backend-production.up.railway.app/auth/logout");
         // localStorage.removeItem("user");
         updateUser(null);
         window.location.href = "/login";
@@ -26,7 +26,7 @@ const Profile = () => {
     //to get lists of projects
     const projectListFetch = async function () {
         try {
-            const { data } = await axios.get("http://localhost:4500/post/properties");
+            const { data } = await axios.get("https://house-rental-backend-production.up.railway.app/post/properties");
             // console.log(data);
             // const userPosts = data.post.filter(post => post.userId === user.id);
             setProjectList(data.post);
@@ -41,7 +41,7 @@ const Profile = () => {
 
     // to get saved lists
     const savedProjects = async function () {
-        const { data } = await axios.get(`http://localhost:4500/post/savedposts/${user.id}`);
+        const { data } = await axios.get(`https://house-rental-backend-production.up.railway.app/post/savedposts/${user.id}`);
         // console.log(data.bookmarks);
         setSavedPosts(data.bookmarks);
     }

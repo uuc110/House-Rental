@@ -15,7 +15,7 @@ const Register = () => {
         const email = e.target[1].value;
         const password = e.target[2].value;
 
-        await axios.post("http://localhost:4500/auth/register", {
+        await axios.post("https://house-rental-backend-production.up.railway.app/auth/register", {
             username,
             email,
             password

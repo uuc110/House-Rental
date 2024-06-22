@@ -20,7 +20,7 @@ const UploadProperty = () => {
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
     console.log(...inputs, detail, images, avatar);
-    await axios.post(`http://localhost:4500/post/${user.id}`, {
+    await axios.post(`https://house-rental-backend-production.up.railway.app/post/${user.id}`, {
       ...inputs, detail, images, avatar
     }).then((res) => {
       navigate('/profile');
